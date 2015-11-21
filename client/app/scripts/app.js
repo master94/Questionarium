@@ -34,6 +34,11 @@ angular
         controller: 'QuestionsCtrl',
         controllerAs: 'questions'
       })
+      .when('/questions/add', {
+        templateUrl: 'views/question-add.html',
+        controller: 'QuestionsCtrl',
+        controllerAs: 'questions'
+      })
       .when('/questions/:questionId', {
         templateUrl: 'views/question-details.html',
         controller: 'QuestionDetailsCtrl',

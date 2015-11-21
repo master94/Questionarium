@@ -19,6 +19,10 @@ angular.module('questionariumClientApp')
 	  		route: '/questions'
 		},
 	  	{
+			caption: 'Ask Question',
+	  		route: '/questions/add'
+		},
+	  	{
 			caption: 'About',
 	  		route: '/about'
 		}

@@ -12,4 +12,8 @@ angular.module('questionariumClientApp')
 	  Question.query(function(data) {
 		  $scope.questions = data;
 	  });
+
+	  $scope.submit = function() {
+		  Question.save($scope.question);
+	  }
   });
