@@ -37,10 +37,10 @@
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/questions">Questions</a></li>
-              <li><a ng-href="#/about">About</a></li>
+            <ul ng-controller="TabsCtrl" class="nav navbar-nav">
+		    <li ng-repeat="tab in tabs" ng-class="{ active: tab.isActive() }">
+		    	<a ng-href="#{{ tab.route }}">{{ tab.caption }}</a>
+		    </li>
             </ul>
           </div>
         </div>
@@ -75,6 +75,7 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/services/questions.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/tabs.js"></script>
         <script src="scripts/controllers/questions.js"></script>
         <script src="scripts/controllers/question-details.js"></script>
         <script src="scripts/controllers/about.js"></script>
