@@ -9,6 +9,8 @@
 
 <div ng-controller="QuestionsCtrl" class="row marketing">
 	<div ng-repeat="question in questions">
-		<span>{{question}}</span>
+		<h3>{{ question.caption }}</h3>
+		<h4>{{ question.text }}</h4>
+		<h5>{{ question.user.name }}</h5>
 	</div>
 </div>

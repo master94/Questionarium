@@ -8,10 +8,8 @@
  * Controller of the questionariumClientApp
  */
 angular.module('questionariumClientApp')
-  .controller('QuestionsCtrl', function ($scope) {
-    $scope.questions = [
-      'Question1',
-      'Question2',
-      'Question3'
-    ];
+  .controller('QuestionsCtrl', function ($scope, Question) {
+	  Question.query(function(data) {
+		  $scope.questions = data;
+	  });
   });
