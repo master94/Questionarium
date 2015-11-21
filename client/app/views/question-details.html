@@ -8,4 +8,11 @@
 	<h5>{{ question.user.name }}</h5>
 	<h5>{{ question.user.email }}</h5>
 	<h5>{{ question.user.nickname }}</h5>
+
+	<div ng-repeat="answer in question.answers">
+		<h4>{{ answer.text          }}</h4>
+		<h5>{{ answer.user.name     }}</h5>
+		<h5>{{ answer.user.email    }}</h5>
+		<h5>{{ answer.user.nickname }}</h5>
+	</div>
 </div>
