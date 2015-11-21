@@ -9,5 +9,9 @@
 master_user = User.find(1)
 
 (0..20).each do |i|
-	Question.create(caption: "Question #%d" % i, text: ("Text text text text #%d\n" % i) * 5, user: master_user)
+	answers = []
+	(0..10).each do |j|
+		answers << Answer.create(text: "Answer %d for the question %d" % [j, i], user: master_user)
+	end
+	Question.create(caption: "Question #%d" % i, text: ("Text text text text #%d\n" % i) * 5, user: master_user, answers: answers)
 end
