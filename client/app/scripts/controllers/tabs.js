@@ -25,10 +25,6 @@ angular.module('questionariumClientApp')
 
 	  $scope.tabs = [
 	  	{
-			caption: 'Main',
-	  		route: '/'
-		},
-	  	{
 			caption: 'Questions',
 	  		route: '/questions'
 		},
