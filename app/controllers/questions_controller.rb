@@ -55,6 +55,6 @@ class QuestionsController < ApplicationController
     end
 
     def question_params
-      params.require(:data).require(:attributes).permit(:caption, :text)
+      params.permit(:caption, :text)
     end
 end

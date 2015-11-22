@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ng-token-auth'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -23,6 +24,11 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
+      })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'login'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
@@ -47,4 +53,9 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+  })
+  .config(function ($authProvider) {
+	  $authProvider.configure({
+		  apiUrl: '/api'
+	  });
   });
