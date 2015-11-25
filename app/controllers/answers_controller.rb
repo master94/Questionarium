@@ -19,7 +19,8 @@ class AnswersController < ApplicationController
   # POST /answers
   # POST /answers.json
   def create
-    @answer = Answer.new(answer_params)
+    @question = Question.find(params[:question_id])
+    @answer = Answer.new(answer_params.update(question: @question, user: current_user))
 
     if @answer.save
       render json: @answer, status: :created, location: @answer
@@ -55,6 +56,6 @@ class AnswersController < ApplicationController
     end
 
     def answer_params
-      params[:answer]
+      params.permit(:text, :question_id)
     end
 end

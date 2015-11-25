@@ -9,18 +9,18 @@
  */
 angular.module('questionariumClientApp')
   .controller('TabsCtrl', function ($scope, $auth, $location, $rootScope) {
-	  $scope.user = null;
+	  $rootScope.user = null;
 
 	  $rootScope.$on('auth:validation-success', function (ev, user) {
-		  $scope.user = user;
+		  $rootScope.user = user;
 	  });
 
 	  $rootScope.$on('auth:login-success', function (ev, user) {
-		  $scope.user = user;
+		  $rootScope.user = user;
 	  });
 
 	  $rootScope.$on('auth:logout-success', function (ev, user) {
-		  $scope.user = null;
+		  $rootScope.user = null;
 	  });
 
 	  $scope.tabs = [
@@ -61,7 +61,7 @@ angular.module('questionariumClientApp')
 	  
 	  $scope.visible = function(tab) {
 		  if ('logged' in tab) {
-			  return ($scope.user !== null) == tab.logged; 
+			  return ($rootScope.user !== null) == tab.logged; 
 		  }
 
 		  return true;

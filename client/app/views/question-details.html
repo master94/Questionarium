@@ -1,18 +1,25 @@
-<div class="jumbotron">
-  <h1>Question details</h1>
-</div>
+<div ng-controller="QuestionDetailsCtrl">
+	<div class="jumbotron">
+		<h3>{{ question.caption }}</h3>
+		<h4>{{ question.text }}</h4>
+		<h5>{{ question.user.nickname }}</h5>
+	</div>
 
-<div ng-controller="QuestionDetailsCtrl" class="row marketing">
-	<h3>{{ question.caption }}</h3>
-	<h4>{{ question.text }}</h4>
-	<h5>{{ question.user.name }}</h5>
-	<h5>{{ question.user.email }}</h5>
-	<h5>{{ question.user.nickname }}</h5>
+	<div class="row marketing">
+		<div ng-repeat="answer in question.answers">
+			<h4>{{ answer.text          }}</h4>
+			<h5>{{ answer.user.nickname }}</h5>
+		</div>
 
-	<div ng-repeat="answer in question.answers">
-		<h4>{{ answer.text          }}</h4>
-		<h5>{{ answer.user.name     }}</h5>
-		<h5>{{ answer.user.email    }}</h5>
-		<h5>{{ answer.user.nickname }}</h5>
+		<div ng-show="user !== null" id="answer">
+			<form ng-submit="submit()">
+				<input type="submit" value="Post answer" class="btn btn-primary" />
+				
+				<div class="form-group>
+					<label for="textInput">Text:</label>
+					<textarea cols="50" rows="10" id="textInput" class="form-control" ng-model="answer.text" placeholder="Please write your answer here" />  
+				</div>
+			</form>
+		</div>
 	</div>
 </div>
