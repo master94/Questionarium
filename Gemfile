@@ -2,10 +2,9 @@ source 'https://rubygems.org'
 
 
 gem 'rails', '4.2.0'
-
 gem 'rails-api'
-
 gem 'spring', :group => :development
+gem 'puma'
 
 
 gem 'mysql2', '~> 0.3.20'
