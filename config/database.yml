@@ -49,6 +49,7 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
   database: questionarium_production
-  username: questionarium
-  password: <%= ENV['QUESTIONARIUM_DATABASE_PASSWORD'] %>
+  pool: 5
+  timeout: 5000

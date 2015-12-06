@@ -9,6 +9,7 @@ gem 'spring', :group => :development
 
 
 gem 'mysql2', '~> 0.3.20'
+gem 'pg'
 
 gem 'devise'
 gem 'devise_token_auth'
