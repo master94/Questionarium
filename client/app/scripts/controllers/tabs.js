@@ -38,6 +38,11 @@ angular.module('questionariumClientApp')
 			logged: false
 		},
 	  	{
+			caption: 'Register',
+	  		route: '/register',
+			logged: false
+		},
+	  	{
 			caption: 'Logout',
 			logged: true,
 			action: function () {
