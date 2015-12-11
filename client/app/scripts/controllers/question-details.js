@@ -14,7 +14,15 @@ angular.module('questionariumClientApp')
 	  });
 
 	  $scope.submit = function() {
-		  $scope.answer.question_id = $scope.question.id;
-		  Answer.save($scope.answer);
+		  var answer = new Answer();
+		  answer.text = $scope.answer.text;
+		  answer.question_id = $scope.question.id;
+		  
+		  answer.$save(function (resp) {
+			  if (!resp.error_message) {
+				 $scope.question.answers.push(resp);
+				 $scope.answer = {};
+			  }
+		  });
 	  }
   });
