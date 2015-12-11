@@ -1,14 +1,15 @@
 <div ng-controller="QuestionDetailsCtrl">
 	<div class="jumbotron">
-		<h3>{{ question.caption }}</h3>
-		<h4>{{ question.text }}</h4>
-		<h5>{{ question.user.nickname }}</h5>
+		<p class="question-caption text">{{ question.caption }}</p>
+		<p align="left" class="question-text text">{{ question.text }}</p>
+		<p align="right" class="question-author">{{ question.user.nickname }}</p>
 	</div>
 
-	<div class="row marketing">
+	<div class="row marketing text">
 		<div ng-repeat="answer in question.answers">
-			<h4>{{ answer.text          }}</h4>
-			<h5>{{ answer.user.nickname }}</h5>
+			<p class="answer-text">{{ answer.text }}</p>
+			<p class="answer-author">{{ answer.user.nickname }}</p>
+			<br>
 		</div>
 
 		<div ng-show="user !== null" id="answer">
