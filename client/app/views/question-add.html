@@ -3,7 +3,12 @@
 </div>
 
 <div ng-controller="QuestionsCtrl" class="row marketing">
-	<form ng-submit="submit()">
+	<div ng-show="user === null">
+		<h2>Please, register to ask questions</h2>
+		<h3>It's just about a few clicks</h3>
+	</div>
+
+	<form ng-show="user !== null" ng-submit="submit()">
 		<input type="submit" value="Ask it!" class="btn btn-primary" />
 
 		<div class="form-group">
