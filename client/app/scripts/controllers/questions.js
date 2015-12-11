@@ -8,12 +8,20 @@
  * Controller of the questionariumClientApp
  */
 angular.module('questionariumClientApp')
-  .controller('QuestionsCtrl', function ($scope, Question) {
+  .controller('QuestionsCtrl', function ($scope, $location, Question) {
 	  Question.query(function(data) {
 		  $scope.questions = data;
 	  });
 
 	  $scope.submit = function() {
-		  Question.save($scope.question);
+		  var question = new Question();
+		  question.caption = $scope.question.caption;
+		  question.text = $scope.question.text;
+
+		  question.$save(function (resp) {
+			  if (!resp.error_message) {
+				  $location.url('/questions/' + resp.id.toString());
+			  }
+		  });
 	  }
   });
