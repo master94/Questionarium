@@ -3,7 +3,7 @@
 </div>
 
 <div ng-controller="QuestionsCtrl" class="row marketing">
-	<div dir-paginate="question in questions | itemsPerPage: 10">
+	<div dir-paginate="question in questions | orderBy: '-created_at' | itemsPerPage: 10">
 		<a ng-href="#/questions/{{ question.id }}" >{{ question.caption }}</a>
 		<h4>{{ question.text | limitTo: 100 }}</h4>
 		<h5>{{ question.user.name }}</h5>
