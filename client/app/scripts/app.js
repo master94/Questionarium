@@ -54,6 +54,9 @@ angular
         controller: 'QuestionDetailsCtrl',
         controllerAs: 'question-details'
       })
+      .when('/404', {
+        templateUrl: 'views/errors/404.html'
+      })
       .otherwise({
         redirectTo: '/'
       });

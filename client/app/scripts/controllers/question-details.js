@@ -8,9 +8,13 @@
  * Controller of the questionariumClientApp
  */
 angular.module('questionariumClientApp')
-  .controller('QuestionDetailsCtrl', function ($scope, $routeParams, Question, Answer) {
-	  Question.get({ id: $routeParams.questionId }, function(data) {
+  .controller('QuestionDetailsCtrl', function ($scope, $routeParams, $location, Question, Answer) {
+	  Question.get({ id: $routeParams.questionId }, function (data) {
 		  $scope.question = data;
+	  },
+	  function (error) {
+		  console.log('Question query error');
+		  $location.url('404');
 	  });
 
 	  $scope.submit = function() {
