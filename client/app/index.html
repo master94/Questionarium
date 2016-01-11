@@ -39,11 +39,12 @@
 
             <ul ng-controller="TabsCtrl" class="nav navbar-nav">
 		    <li ng-repeat="tab in tabs" ng-show="visible(tab)" ng-class="{ active: tab.isActive() }">
+		    	<a ng-if="isDelimiter(tab)"/>
 			<a href ng-if="hasAction(tab)" ng-click="tab.action()">{{ tab.caption }}</a>
-			<a ng-if="!hasAction(tab)" ng-href="#{{ tab.route }}">{{ tab.caption }}</a>
+			<a ng-if="!isDelimiter(tab) && !hasAction(tab)" ng-href="#{{ tab.route }}">{{ tab.caption }}</a>
 		    </li>
 		    <li ng-show="user !== null">
-		    	<a href>{{ user.name }}</a>
+		    	<a>{{ user.name }}</a>
 		    </li>
             </ul>
           </div>

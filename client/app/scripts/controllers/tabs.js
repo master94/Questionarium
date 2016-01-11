@@ -33,6 +33,13 @@ angular.module('questionariumClientApp')
 	  		route: '/questions/add'
 		},
 	  	{
+			caption: 'About',
+	  		route: '/about'
+		},
+		{
+			delimiter: true
+		},
+	  	{
 			caption: 'Login',
 	  		route: '/login',
 			logged: false
@@ -51,10 +58,6 @@ angular.module('questionariumClientApp')
 					.catch(function (resp) {});
 				$location.path('/');
 			}
-		},
-	  	{
-			caption: 'About',
-	  		route: '/about'
 		}
 	  ];
 
@@ -70,6 +73,10 @@ angular.module('questionariumClientApp')
 		  }
 
 		  return true;
+	  }
+
+	  $scope.isDelimiter = function(tab) {
+		  return 'delimiter' in tab;
 	  }
 
 	  $scope.hasAction = function (tab) {
