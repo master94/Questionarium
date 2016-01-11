@@ -6,8 +6,8 @@
 	</div>
 
 	<div class="row marketing text">
-		<div ng-repeat="answer in question.answers">
-			<p class="answer-text">{{ answer.text }}</p>
+		<div ng-repeat="answer in question.answers" id="answer-{{ answer.id }}" class="anchor">
+			<p class="answer-text">{{ answer.text }} <a ng-href="{{ '#' + path() + '#answer-' + answer.id }}">#</a></p>
 			<p class="answer-author">{{ answer.user.nickname }}</p>
 			<br>
 		</div>

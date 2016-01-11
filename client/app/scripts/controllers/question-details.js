@@ -8,14 +8,21 @@
  * Controller of the questionariumClientApp
  */
 angular.module('questionariumClientApp')
-  .controller('QuestionDetailsCtrl', function ($scope, $routeParams, $location, Question, Answer) {
+  .controller('QuestionDetailsCtrl', function ($scope, $routeParams, $location, $anchorScroll, Question, Answer) {
 	  Question.get({ id: $routeParams.questionId }, function (data) {
 		  $scope.question = data;
+		  if ($location.hash()) {
+			  $anchorScroll();
+		  } 
 	  },
 	  function (error) {
 		  console.log('Question query error');
 		  $location.url('404');
 	  });
+
+	  $scope.path = function() {
+		  return $location.path();
+	  }
 
 	  $scope.submit = function() {
 		  var answer = new Answer();
