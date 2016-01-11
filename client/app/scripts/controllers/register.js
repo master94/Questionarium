@@ -9,7 +9,7 @@
  */
 angular.module('questionariumClientApp')
   .controller('RegisterCtrl', function ($scope, $auth, $location) {
-	  $scope.message = 'Please, enter regisration data';
+	  $scope.message = 'Please, enter registration data';
 
 	  $scope.register = function() {
 		  $auth.submitRegistration($scope.credentials)
